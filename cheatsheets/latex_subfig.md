@@ -1,6 +1,12 @@
 ### LaTex multiple plots in a grid
 
 1. Using subfig. [Generated pdf for the following sample.](../pdfs/doc1.pdf)
+
+<details>	
+<summary> Latex code </summary> 
+
+
+
 ```tex
 % for settting up page
 \documentclass[a4,12pt]{article}
@@ -72,7 +78,16 @@
 \end{document}
 ```
 
-2. Using subcaption. [Generated pdf for the following sample.](../pdfs/doc2.pdf)
+</details>   
+
+
+1. Using subcaption. [Generated pdf for the following sample.](../pdfs/doc2.pdf)
+
+<details>	
+<summary> Latex code </summary> 
+
+
+
 ```tex
 % for settting up page
 \documentclass[a4,12pt]{article}
@@ -150,3 +165,86 @@
 
 \end{document}
 ```
+
+</details>	
+
+
+
+### Use citation and their number from differnt tex file;
+Add the following lines in the second tex file
+
+```tex
+\usepackage{xr} 
+\externaldocument{first}  % name of the first tex file is `first.tex`
+```
+
+
+<details>	
+<summary> Latex code </summary> 
+
+File `first.tex`
+```tex
+\documentclass{article}
+
+
+\begin{document} 
+This interesting book \cite{book}. 
+
+\begin{thebibliography}{10}
+\bibitem{book}
+  M. Hill.
+  \newblock Book.
+  \newblock  2018.
+
+\bibitem{book2}
+  M. Grace.
+  \newblock Other book.
+  \newblock  2019.
+\end{thebibliography}
+\end{document}
+```
+
+File `second.tex`
+```tex
+\documentclass{article}
+
+\usepackage{xr} 
+\externaldocument{first}
+
+\begin{document} 
+Please read \cite{book2}.
+\end{document}
+```
+
+</details>
+
+
+
+
+
+### Refer figure, table etc. from different tex file
+If you want to refer some label that exist in a tex document named `first.tex`, in a separate document named `second.tex`, you can use the `xr` package,  
+in the `second.tex` file put,  
+```tex
+\usepackage{xr}
+\externaldocument{first}
+```
+Now you can refer some lable in the `first.tex` file in the usual `\ref` command. You can also use a prefix to differentiate between the lable in first and second document
+```tex
+\externaldocument[I-]{chapterI}
+```
+Now to refer some lable `fig1` in the `first.tex`, use `\ref{I-fig1}` in the second document.  
+
+- For online latex editor like Overleaf the process, you have to do few extra step, see here https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf .
+
+* **My suggestion:** This process works, but if you have to share one tex file as a standalone document, then things gets messed up. In that case, it is better to define the lable you want to refer as a latex variable, like `\newcommand{\figone}{1} ` and refer them with the `\figone{}` command.
+
+
+### LaTeX for loop
+Use the `pgffor` package
+```tex
+\foreach \n in {1,2,3,4,5}{
+	Current number is \n
+}
+```
+
