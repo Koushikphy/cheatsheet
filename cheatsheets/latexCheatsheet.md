@@ -1,6 +1,16 @@
-### LaTex multiple plots in a grid
+## LaTex Cheatsheet
 
-1. Using subfig. [Generated pdf for the following sample.](../pdfs/doc1.pdf)
+
+- [Table of Contents](#latex-multiple-plots-in-a-grid)
+	- [Using subfig. Generated pdf for the following sample.](#using-subfig-generated-pdf-for-the-following-sample)
+	- [Use citation and their number from differnt tex file](#use-citation-and-their-number-from-differnt-tex-file)
+	- [Refer figure, table etc. from different tex file](#refer-figure-table-etc-from-different-tex-file)
+	- [LaTeX for loop](#latex-for-loop)
+	- [Reference as a non-superscript text](#reference-as-a-non-superscript-text)
+
+---
+
+###  Using subfig. [Generated pdf for the following sample.](../pdfs/doc1.pdf)
 
 <details>	
 <summary> Latex code </summary> 
@@ -170,7 +180,7 @@
 
 
 
-### Use citation and their number from differnt tex file;
+### Use citation and their number from differnt tex file
 Add the following lines in the second tex file
 
 ```tex
@@ -248,3 +258,8 @@ Use the `pgffor` package
 }
 ```
 
+
+### Reference as a non-superscript text
+```bash
+\NewDocumentCommand{\parencite}{m}{\begingroup\bibpunct{}{}{,}{n}{}{,}\cite{#1}\endgroup}
+```
