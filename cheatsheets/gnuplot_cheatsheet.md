@@ -104,7 +104,7 @@ _Provided gnuplot version above 4.6_
 
 11. Set texts/labels 
     ```bash
-    set label 1 "A" {at <position>} {font "Haveltica,20"} {front|back} 
+    set label 1 "A" {at <position>} {font "Haveltica,20"} {front|back} {textcolor rgb "blue"}
     # use different tag (i.e. `1` after label) for different label
     # position can be a coordinate for 2 or 3 numbers
     # for easily figuring out the position check below
