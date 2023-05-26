@@ -11,6 +11,7 @@
   - [Contours](#contours)
     - [Line Contour:](#line-contour)
     - [Filled Contour:](#filled-contour)
+  - [Animations:](#animations)
 
 
 ### Basic plot with 2 lines
@@ -621,3 +622,37 @@ cbar.ax.set_ylabel('Energy (eV)', rotation=270,fontsize=25)
 
 
 
+
+### Animations:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# initialize the plot
+fig, ax = plt.subplots()
+xdata, ydata = [], []
+ln, = ax.plot([], [], 'ro')
+ax.set_ylim(-1, 1)
+ax.set_xlim(0, 2*np.pi)
+
+
+# some sample data
+xdata = np.linspace(0, 2*np.pi, 128)
+ydata = np.sin(np.linspace(0, 2*np.pi, 128))
+
+
+
+def update(i):
+    # Input `i` is each value of the iterable, 
+    # passed to the frames argument of FuncAnimation
+    # get the updated data somehow
+    x = xdata[:i]
+    y = ydata[:i]
+    ln.set_data(x,y) # update data in plot
+    return ln,
+
+ani = FuncAnimation(fig, update, frames=range(128), blit=True)
+plt.show()
+
+```
