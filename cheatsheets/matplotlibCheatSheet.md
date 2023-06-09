@@ -11,7 +11,8 @@
   - [Contours](#contours)
     - [Line Contour:](#line-contour)
     - [Filled Contour:](#filled-contour)
-  - [Animations:](#animations)
+  - [Animations](#animations)
+    - [Animation with manual update](#animation-with-manual-update)
 
 
 ### Basic plot with 2 lines
@@ -654,5 +655,33 @@ def update(i):
 
 ani = FuncAnimation(fig, update, frames=range(128), blit=True)
 plt.show()
+
+```
+
+ 
+  
+### Animation with manual update
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+N = 100
+# some random data just for plotting
+x = np.random.rand(N)
+y = np.random.rand(N)
+
+plt.ion()
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+line1, = ax.plot(x, y, 'r-') 
+
+for _ in range(50):
+    # update the data in the line object
+    line1.set_ydata(np.random.rand(N))
+    line1.set_xdata(np.random.rand(N))
+    # update the figure
+    fig.canvas.draw()
+    fig.canvas.flush_events()
 
 ```
