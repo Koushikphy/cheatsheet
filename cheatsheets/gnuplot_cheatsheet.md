@@ -399,7 +399,8 @@ Gnuplot actual column number starts from 1, but there are three pseudo columns (
 - -1    Contains the line number (starting from zero). Reset by a single blank line.
 - -2    Contains the index (starting from zero) of the current data set. Reset by a double blank line.
 
-
+#### Avilable colors
+Check available colornames by running `show colornames`
 
 ### Reference
 1. Gnuplot website : http://www.gnuplot.info/
