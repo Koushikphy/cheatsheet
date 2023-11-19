@@ -1,8 +1,10 @@
 ## LaTex Cheatsheet
 
 
-- [Table of Contents](#latex-multiple-plots-in-a-grid)
-	- [Using subfig. Generated pdf for the following sample.](#using-subfig-generated-pdf-for-the-following-sample)
+- [Table of Contents](#latex-cheatsheet)
+	- [Use multiple plots in a grid](#use-multiple-plots-in-a-grid)
+		- [Using subfig.](#using-subfig)
+		- [Using subcaption.](#using-subcaption)
 	- [Use citation and their number from differnt tex file](#use-citation-and-their-number-from-differnt-tex-file)
 	- [Refer figure, table etc. from different tex file](#refer-figure-table-etc-from-different-tex-file)
 	- [LaTeX for loop](#latex-for-loop)
@@ -10,7 +12,10 @@
 
 ---
 
-###  Using subfig. [Generated pdf for the following sample.](../pdfs/doc1.pdf)
+### Use multiple plots in a grid
+
+#### Using subfig. 
+[Generated pdf for the following sample.](../pdfs/doc1.pdf)
 
 <details>	
 <summary> Latex code </summary> 
@@ -91,7 +96,8 @@
 </details>   
 
 
-1. Using subcaption. [Generated pdf for the following sample.](../pdfs/doc2.pdf)
+#### Using subcaption. 
+[Generated pdf for the following sample.](../pdfs/doc2.pdf)
 
 <details>	
 <summary> Latex code </summary> 

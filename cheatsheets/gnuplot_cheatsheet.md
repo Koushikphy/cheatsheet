@@ -402,5 +402,12 @@ Gnuplot actual column number starts from 1, but there are three pseudo columns (
 #### Avilable colors
 Check available colornames by running `show colornames`
 
+
+#### Use fraction 
+```bash
+frac(a,b) = sprintf("{%s}\n~{%s}{1.4%s}",''.a,''.b,(_s='',sum[_i=1:strlen(''.b)] (_s=s.'\',0),_s)) 
+```
+
+
 ### Reference
 1. Gnuplot website : http://www.gnuplot.info/
