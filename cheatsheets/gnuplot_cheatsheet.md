@@ -12,7 +12,7 @@ _Provided gnuplot version above 4.6_
   - [Multiplot](#multiplot)
   - [Script for saving figure as eps/pdf](#script-for-saving-figure-as-epspdf)
   - [Markups \& Symbols](#markups--symbols)
-  - [Data processing:](#data-processing)
+  - [Data processing](#data-processing)
   - [Miscellaneous](#miscellaneous)
     - [Remove margins from gnuplot saved eps](#remove-margins-from-gnuplot-saved-eps)
     - [Positioning things](#positioning-things)
@@ -318,7 +318,7 @@ Set the terminal type as `set encoding iso_8859_1` to use symbols and markups.
 
 &nbsp;
 
-### Data processing:
+### Data processing
 Functions or operators can be used inside the gnuplot to modify data from files. Data from a particular column can be referneced with the `$` macro.
 
 ```bash
@@ -330,6 +330,24 @@ pl 'data.dat' u (torad($1)):2  # plot column 1 with 2, but convert the degree va
 
 pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 in place of negetive number.
 ```
+
+
+### The `stats` command
+The `stats` command can be used to query different statistical information about the data file inside gnuplot. This command can be used similar to the `plot` command to get information about a particular column/block/index etc. of the data file. 
+
+```
+stats "file1.dat" using 2 {nooutput}
+```
+This command shows information about the column 2 of `file1.dat` and stores it in `STATS_*` variables. To show all the variable use `show variables`. Inseat of `STATS_`, the information can be stored in a different variable (e.g. `myvar`) using this
+```
+stats "file1.dat" using 2 prefix 'myvar'
+```
+Now, these variables can also be used for plotting. For example,
+```
+stats 'file1.dat' u 2 prefix 'myvar' nooutput  
+pl 'file1.dat' u 1:($2/myvar_max) w  l 
+```
+plots `file1.dat` using 1st and 2nd column, with the 2nd column scaled to the highest value of that column.
 
 
 ---
