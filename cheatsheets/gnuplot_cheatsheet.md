@@ -13,11 +13,14 @@ _Provided gnuplot version above 4.6_
   - [Script for saving figure as eps/pdf](#script-for-saving-figure-as-epspdf)
   - [Markups \& Symbols](#markups--symbols)
   - [Data processing](#data-processing)
+  - [`stats` command](#stats-command)
   - [Miscellaneous](#miscellaneous)
     - [Remove margins from gnuplot saved eps](#remove-margins-from-gnuplot-saved-eps)
     - [Positioning things](#positioning-things)
     - [Inline Data](#inline-data)
     - [Pseudo columns](#pseudo-columns)
+    - [Avilable colors](#avilable-colors)
+    - [Use fraction](#use-fraction)
   - [Reference](#reference)
 
 ---
@@ -332,7 +335,7 @@ pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 
 ```
 
 
-### The `stats` command
+### `stats` command
 The `stats` command can be used to query different statistical information about the data file inside gnuplot. This command can be used similar to the `plot` command to get information about a particular column/block/index etc. of the data file. 
 
 ```
